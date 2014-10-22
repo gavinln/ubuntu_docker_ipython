@@ -1,0 +1,45 @@
+Install ODBC Driver Manager
+http://technet.microsoft.com/en-us/library/hh568449%28v=sql.110%29.aspx
+
+Install the Microsoft ODBC Driver for SQL
+http://technet.microsoft.com/en-us/library/hh568454%28v=sql.110%29.aspx
+
+Install the driver on Ubuntu
+http://onefinepub.com/2014/03/installing-unixodbc-2-3-2-higher-ubuntu-12-04-lts/
+
+Install ODBC driver
+1. cp /vagrant/odbc_driver/msodbcsql-11.0.2270.0.tar.gz .
+
+2. tar xvzf msodbcsql-11.0.2270.0.tar.gz
+
+3. cd msodbcsql-11.0.2270.0/
+
+4. cp /vagrant/odbc_driver/unixODBC-2.3.0.tar.gz .
+
+5. Get script customized for Ubuntu
+wget https://raw.github.com/Andrewpk/Microsoft--SQL-Server--ODBC-Driver-1.0-for-Linux-Fixed-Install-Scripts/master/build_dm.sh
+
+6. Make build script executable
+chmod +x build_dm.sh.1
+
+5.Run script
+./build_dm.sh.1 --download-url=file://unixODBC-2.3.0.tar.gz
+
+cd /tmp/unixODBC.13165.20441.27330/unixODBC-2.3.0
+sudo make install
+
+Install ODBC driver
+1. cd ~/msodbcsql-11.0.2270.0/
+
+2. Get modified install scripts
+wget https://raw.githubusercontent.com/Andrewpk/Microsoft--SQL-Server--ODBC-Driver-1.0-for-Linux-Fixed-Install-Scripts/master/install.sh
+
+3. Make script executable
+chmod +x install.sh.1
+
+4. Check setup
+./install.sh.1 verify
+
+5. install the driver
+sudo ./install.sh.1 verify
+
