@@ -1,0 +1,7 @@
+notebook:
+    build: .
+    command: python /usr/local/bin/ipython notebook --no-browser --port 8888 --ip=* --notebook-dir=/notebook-dir
+    ports:
+        - "8888:8888"
+    volumes:
+        - /vagrant/notebooks:/notebook-dir/shared:ro
