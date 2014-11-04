@@ -12,7 +12,7 @@ Exec {
 
 class {
     init: ;
-    #python_setup:;
+    python_setup:;
     ohmyzsh_setup:;
 }
 
