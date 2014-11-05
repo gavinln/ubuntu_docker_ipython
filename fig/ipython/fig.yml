@@ -4,4 +4,4 @@ notebook:
     ports:
         - "8888:8888"
     volumes:
-        - /vagrant/notebooks:/notebook-dir/shared:ro
+        - /vagrant/notebooks:/notebook-dir/shared

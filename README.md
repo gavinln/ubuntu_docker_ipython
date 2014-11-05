@@ -50,7 +50,6 @@ Running
 
 5. Run the IPython notebook Docker container
 
-
     ```bash
     fig up -d notebook
     ```
