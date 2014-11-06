@@ -28,4 +28,4 @@ RUN chmod u+x /notebook.sh
 # create a directory for the notebooks
 RUN mkdir /notebook-dir
 
-#CMD ["/notebook.sh"]
+CMD ["/notebook.sh"]
