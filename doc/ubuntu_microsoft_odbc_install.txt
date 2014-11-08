@@ -58,5 +58,7 @@ chmod -R o=g dist-packages
 To find out the location of ODBC files
 odbcinst -j
 
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64
+export LD_LIBRARY_PATH
 
 
