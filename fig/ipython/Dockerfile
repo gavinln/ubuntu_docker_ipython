@@ -14,8 +14,8 @@ RUN apt-get update && apt-get install -y -q \
     python-pip
 
 RUN pip install "ipython[notebook]"
-RUN pip install numpy
-RUN pip install pandas
+#RUN pip install numpy
+#RUN pip install pandas
 
 VOLUME /notebooks
 WORKDIR /notebooks
@@ -28,4 +28,4 @@ RUN chmod u+x /notebook.sh
 # create a directory for the notebooks
 RUN mkdir /notebook-dir
 
-#CMD ["/notebook.sh"]
+CMD ["/notebook.sh"]
