@@ -17,29 +17,46 @@ Install ODBC driver
 4. cp /vagrant/odbc_driver/unixODBC-2.3.0.tar.gz .
 
 5. Get script customized for Ubuntu
-wget https://raw.github.com/Andrewpk/Microsoft--SQL-Server--ODBC-Driver-1.0-for-Linux-Fixed-Install-Scripts/master/build_dm.sh
+wget https://raw.github.com/Andrewpk/Microsoft--SQL-Server--ODBC-Driver-1.0-for-Linux-Fixed-Install-Scripts/master/build_dm.sh -O ubuntu_build_dm.sh
 
 6. Make build script executable
-chmod +x build_dm.sh.1
+chmod +x ubuntu_build_dm.sh
 
 5.Run script
-./build_dm.sh.1 --download-url=file://unixODBC-2.3.0.tar.gz
+./ubuntu_build_dm.sh --accept-warning --download-url=file://unixODBC-2.3.0.tar.gz
 
-cd /tmp/unixODBC.13165.20441.27330/unixODBC-2.3.0
+cd /tmp/unixODBC.30044.28883.18397/unixODBC-2.3.0
 sudo make install
 
 Install ODBC driver
 1. cd ~/msodbcsql-11.0.2270.0/
 
 2. Get modified install scripts
-wget https://raw.githubusercontent.com/Andrewpk/Microsoft--SQL-Server--ODBC-Driver-1.0-for-Linux-Fixed-Install-Scripts/master/install.sh
+wget https://raw.githubusercontent.com/Andrewpk/Microsoft--SQL-Server--ODBC-Driver-1.0-for-Linux-Fixed-Install-Scripts/master/install.sh -O ubuntu_install.sh
 
 3. Make script executable
-chmod +x install.sh.1
+chmod +x ubuntu_install.sh
 
 4. Check setup
-./install.sh.1 verify
+./ubuntu_install.sh verify
 
-5. install the driver
-sudo ./install.sh.1 verify
+5. Install the driver
+sudo ./ubuntu_install.sh install --accept-license
+
+To install pyodbc
+
+sudo apt-get install -y python-dev
+sudo apt-get install python-pip
+sudo pip install https://pyodbc.googlecode.com/files/pyodbc-3.0.7.zip
+
+#sudo pip install --allow-external pyodbc --allow-unverified pyodbc pyodbc
+#sudo apt-get install -y unixodbc-dev
+
+cd /usr/local/lib/python2.7/
+chmod -R o=g dist-packages
+
+To find out the location of ODBC files
+odbcinst -j
+
+
 

@@ -97,7 +97,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #
     config.vm.provision "shell", inline: $script
 
-    config.vm.provision "docker"
+    #config.vm.provision "docker"
 
     config.vm.provision "puppet" do |puppet|
         puppet.manifest_file  = "vagrant.pp"
