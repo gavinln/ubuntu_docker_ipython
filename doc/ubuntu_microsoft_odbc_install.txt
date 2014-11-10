@@ -29,7 +29,8 @@ cd /tmp/unixODBC.30044.28883.18397/unixODBC-2.3.0
 sudo make install
 
 Install ODBC driver
-1. cd ~/msodbcsql-11.0.2270.0/
+1. Change to the ODBC driver directory
+cd ~/msodbcsql-11.0.2270.0/
 
 2. Get modified install scripts
 wget https://raw.githubusercontent.com/Andrewpk/Microsoft--SQL-Server--ODBC-Driver-1.0-for-Linux-Fixed-Install-Scripts/master/install.sh -O ubuntu_install.sh
@@ -46,8 +47,9 @@ sudo ./ubuntu_install.sh install --accept-license
 To install pyodbc
 
 sudo apt-get install -y python-dev
-sudo apt-get install -y python-pip
 sudo pip install --allow-external pyodbc --allow-unverified pyodbc pyodbc
+
+#sudo apt-get install -y python-pip
 #sudo pip install https://pyodbc.googlecode.com/files/pyodbc-3.0.7.zip
 #sudo apt-get install -y unixodbc-dev
 
@@ -57,5 +59,7 @@ chmod -R o=g dist-packages
 To find out the location of ODBC files
 odbcinst -j
 
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64
+export LD_LIBRARY_PATH
 
 
