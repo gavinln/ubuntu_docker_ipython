@@ -38,7 +38,7 @@ chmod +x ubuntu_build_dm.sh
 ./ubuntu_build_dm.sh --accept-warning --download-url=file://unixODBC-2.3.0.tar.gz
 
 6. Search for a directory 
-ODBC_INSTALL_DIR=`sudo find /tmp -name unixODBC-2.3.0`
+UNIX_ODBC_DIR=`find /tmp -name unixODBC-2.3.0`
 cd $ODBC_INSTALL_DIR
 
 7. Install the Unix ODBC driver manager
