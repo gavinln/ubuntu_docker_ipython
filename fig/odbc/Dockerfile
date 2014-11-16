@@ -48,8 +48,7 @@ RUN ./ubuntu_install.sh install --accept-license
 RUN pip install --allow-external pyodbc --allow-unverified pyodbc pyodbc
 
 # export library path for Microsoft ODBC driver
-#LD_LIBRARY_PATH=/usr/lib64
-#export LD_LIBRARY_PATH
+ENV LD_LIBRARY_PATH /usr/lib64
 
 # link libraries required for Microsoft ODBC driver
 RUN ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 /usr/lib64/libcrypto.so.10 && \

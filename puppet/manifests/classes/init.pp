@@ -9,10 +9,7 @@ class init {
                 command => "sudo apt-get update",
             }
             Exec["apt-update"] -> Package <| |>
-            package { "python-software-properties":
-                ensure => present,
-            }
-            $misc_packages = ['git-core', 'tmux']
+            $misc_packages = ['git-core']
             package { $misc_packages:
                 ensure => present,
             }

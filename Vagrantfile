@@ -28,7 +28,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # The url from where the 'config.vm.box' box will be fetched if it
     # doesn't already exist on the user's system.
-    #config.vm.box_url = "https://vagrantcloud.com/ubuntu/trusty64/version/1/provider/virtualbox.box"
+    # config.vm.box_url = "https://vagrantcloud.com/ubuntu/trusty64/version/1/provider/virtualbox.box"
+    # Microsoft OneDrive link
+    config.vm.box_url = "https://onedrive.live.com/download?cid=5184C6CE006B3E69&resid=5184C6CE006B3E69%21505&authkey=ANSx7SJQhwh1LcU"
 
     # Disable automatic box update checking. If you disable this, then
     # boxes will only be checked for updates when the user runs
