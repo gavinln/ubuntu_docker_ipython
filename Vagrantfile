@@ -6,11 +6,12 @@ $script = <<SCRIPT
     # Exit on any errors.
     set -e
 
-    apt-get update
-
     # install puppet modules
     (puppet module list | grep acme-ohmyzsh) ||
         puppet module install -v 0.1.2 acme-ohmyzsh
+
+    (puppet module list | grep thias-samba) ||
+        puppet module install -v 0.1.5 thias-samba
 
 SCRIPT
 
@@ -100,7 +101,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #
     config.vm.provision "shell", inline: $script
 
-    config.vm.provision "docker"
+    #config.vm.provision "docker"
 
     config.vm.provision "puppet" do |puppet|
         puppet.manifest_file  = "vagrant.pp"

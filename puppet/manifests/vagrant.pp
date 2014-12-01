@@ -14,6 +14,7 @@ class {
     init: ;
     python_setup:;
     ohmyzsh_setup:;
+    #samba_share: require => Class[init];
 }
 
 
