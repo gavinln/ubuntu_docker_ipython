@@ -39,7 +39,7 @@ Running
 3. Go to the IPython notebook Docker container directory
 
     ```bash
-    cd /vagrant/fig/ipython
+    cd /vagrant/docker/ipython
     ```
 
 4. Build the IPython notebook Docker container
