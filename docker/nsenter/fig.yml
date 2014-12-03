@@ -1,0 +1,4 @@
+box:
+    build: .
+    volumes:
+        - /usr/local/bin:/target
