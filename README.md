@@ -45,23 +45,24 @@ Running
 4. Build the IPython notebook Docker container
 
     ```bash
-    fig build notebook
+    sudo fig build notebook
     ```
 
 5. Run the IPython notebook Docker container
 
     ```bash
-    fig up -d notebook
+    sudo fig up -d notebook
     ```
 
-6. Open the browser to the IPython notebook page
-http://localhost:8888/
-
-7. To view the running containers
+6. To view the running containers
 
     ```bash
-    fig ps
+    sudo fig ps
     ```
+
+7. Open the browser to the IPython notebook page
+http://localhost:PORT_IN_STEP_6/
+
 
 8. To see the logs from the IPython notebook container
 
@@ -74,12 +75,12 @@ http://localhost:8888/
 10. To stop the Docker IPython notebook container
 
     ```bash
-    fig kill notebook
+    sudo fig kill notebook
     ```
 11. To remove the notebook Docker container
 
     ```bash
-    fig rm notebook
+    sudo fig rm notebook
     ```
 
 Requirements
