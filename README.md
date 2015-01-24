@@ -67,7 +67,7 @@ http://localhost:PORT_IN_STEP_6/
 8. To see the logs from the IPython notebook container
 
     ```bash
-    fig logs notebook
+    sudo fig logs notebook
     ```
 
 9. To stop display of the logs type `Ctrl+C`.
