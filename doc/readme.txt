@@ -20,3 +20,7 @@ sudo docker save -o ubuntu_docker_python.tar odbc_test
 https://onedrive.live.com/download?cid=5184C6CE006B3E69&resid=5184C6CE006B3E69%21506&authkey=ANkLm7KmSwJruVA
 
 sudo docker load -i ubuntu_docker_python.tar
+
+To setup an nginx reverse proxy
+See https://github.com/jwilder/nginx-proxy
+docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock jwilder/nginx-proxy
