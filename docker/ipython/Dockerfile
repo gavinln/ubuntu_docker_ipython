@@ -56,6 +56,30 @@ RUN ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 /usr/lib64/libcrypto.so.10 &&
 RUN locale-gen en_US.UTF-8 && dpkg-reconfigure locales
 
 RUN pip install "ipython[notebook]"
+RUN apt-get install -y python-numpy
+RUN pip install pandas
+RUN apt-get install -y libfreetype6-dev \
+    pkg-config
+RUN pip install matplotlib
+#RUN apt-get install -y python-matplotlib
+RUN apt-get install -y python-scipy
+RUN pip install statsmodels
+RUN pip install seaborn
+
+#WORKDIR /root
+
+#RUN echo 'export PATH=/opt/anaconda/bin:$PATH' > /etc/profile.d/conda.sh
+#RUN wget --quiet http://repo.continuum.io/miniconda/Miniconda-3.7.0-Linux-x86_64.sh
+#RUN /bin/bash Miniconda-3.7.0-Linux-x86_64.sh -b -p /opt/anaconda
+#RUN rm Miniconda-3.7.0-Linux-x86_64.sh
+#ENV PATH /opt/anaconda/bin:$PATH
+
+#RUN conda install --yes -q ipython-notebook
+#RUN conda install --yes -q numpy
+#RUN conda install --yes -q pandas
+#RUN conda install --yes -q matplotlib
+#RUN conda install --yes -q scipy
+#RUN conda install --yes -q seaborn
 
 VOLUME /notebooks
 WORKDIR /notebooks
@@ -69,3 +93,4 @@ RUN chmod u+x /notebook.sh
 RUN mkdir /notebook-dir
 
 CMD ["/notebook.sh"]
+#CMD while true; do echo 'Hit CTRL+C'; sleep 1; done

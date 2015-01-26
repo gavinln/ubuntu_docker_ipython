@@ -24,3 +24,6 @@ sudo docker load -i ubuntu_docker_python.tar
 To setup an nginx reverse proxy
 See https://github.com/jwilder/nginx-proxy
 docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock jwilder/nginx-proxy
+
+To setup Miniconda use
+https://github.com/ContinuumIO/docker-images/blob/master/miniconda/Dockerfile
