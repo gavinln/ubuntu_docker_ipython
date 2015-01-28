@@ -27,3 +27,10 @@ docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock jwilder/nginx-pr
 
 To setup Miniconda use
 https://github.com/ContinuumIO/docker-images/blob/master/miniconda/Dockerfile
+
+To create a Samba share
+1. Create a directory in /srv
+sudo mkdir /srv/pictures
+
+2. Set the correct permissions
+sudo chmod 777 /srv/pictures
