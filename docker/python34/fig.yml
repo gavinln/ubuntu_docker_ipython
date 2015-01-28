@@ -1,0 +1,4 @@
+scraper:
+    build: .
+    command: bash
+
