@@ -1,5 +1,11 @@
 # Setup samba shares
 class samba_share {
+    file { "/srv/share":
+        ensure => "directory",
+        owner  => "root",
+        group  => "root",
+        mode   => 777,
+    }
     class {'::samba::server':
         workgroup            => 'WORKGROUP',
         server_string        => 'Example File Server 01',
@@ -15,14 +21,9 @@ class samba_share {
             'printcap name = /dev/null',
         ],
         shares => {
-            'homes' => [
-            'comment = Home Directories',
-            'browseable = no',
-            'writable = no',
-            ],
-            'pictures' => [
-                'comment = Pictures',
-                'path = /srv/pictures',
+            'share' => [
+                'comment = Shared Folder',
+                'path = /srv/share',
                 'browseable = yes',
                 'writable = yes',
                 'guest ok = yes',
