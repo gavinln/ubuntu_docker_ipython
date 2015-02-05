@@ -1,0 +1,11 @@
+sentry:
+    build: .
+    command: start
+    ports:
+        - "8080:9000"
+    volumes:
+        - ./sentry_data:/data
+    environment:
+        SECRET_KEY: randomvalue
+        SENTRY_URL_PREFIX: http://sentry.vagrant.com
+
