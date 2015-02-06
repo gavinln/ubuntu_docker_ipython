@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Using Raven to log error to Sentry</title>
+</head>
+<body>
+    This is the body
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//cdn.ravenjs.com/1.1.16/jquery,native/raven.min.js"></script>
+    <script>
+        var options = {
+            logger: 'javascript',
+            ignoreErrors: [
+                'fb_xd_fragment', /ReferenceError:.*/
+            ],
+            includePaths: [
+                /http:\/\/sentry\.ipython\.com/
+            ]
+        };
+        Raven.config('http://b5f1269c9bf9467cbb862e39dc0431a1@sentry.ipython.com/2', options).install();
+    </script>
+    <script>
+        var causeError = function() {
+            var my_math = new Math();
+            console.log("The value is " + my_math.toString());
+        };
+        Raven.context(causeError());
+    </script>
+</body>
+</html>
