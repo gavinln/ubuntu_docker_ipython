@@ -23,3 +23,9 @@ The log files and sqlite database are in
 
 4. sudo fig stop sentry
 5. sudo fig rm sentry
+
+
+Need to add  -L 80:192.168.33.10:80 to ssh forwarding
+
+Need to use an old version as the new version does not install correctly
+pip install raven==4.2.3
