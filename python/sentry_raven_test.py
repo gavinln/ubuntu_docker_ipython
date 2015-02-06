@@ -3,7 +3,7 @@
 
 from raven import Client
 
-client = Client('http://33667a3c1ef74c1bb554d05a51a5058b:08b0037d9f144834a294526dbf25d792@sentry.vagrant.com:8080/2')
+client = Client('http://b5f1269c9bf9467cbb862e39dc0431a1:8ac493396936480694e4c25b8c3fdc91@sentry.ipython.com/2')
 
 # record a simple message
 client.captureMessage('hello world!')
