@@ -1,7 +1,0 @@
-notebook:
-    build: .
-    command: echo Hello World!
-    ports:
-        - "8888"
-    volumes:
-        - /vagrant/notebooks:/notebooks
