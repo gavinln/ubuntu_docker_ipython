@@ -6,15 +6,18 @@ $script = <<SCRIPT
     # Exit on any errors.
     set -e
 
+    PUPPET_INSTALL='puppet module install \
+      --module_repository http://forge.puppetlabs.com'
+
     # install puppet modules
     (puppet module list | grep acme-ohmyzsh) ||
-        puppet module install -v 0.1.2 acme-ohmyzsh
+        $PUPPET_INSTALL -v 0.1.2 acme-ohmyzsh
 
     (puppet module list | grep thias-samba) ||
-        puppet module install -v 0.1.5 thias-samba
+        $PUPPET_INSTALL -v 0.1.5 thias-samba
 
     (puppet module list | grep garethr-docker) ||
-        puppet module install -v 2.2.0 garethr-docker
+        $PUPPET_INSTALL -v 2.2.0 garethr-docker
 
 SCRIPT
 
@@ -27,7 +30,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # options are documented and commented below. For a complete reference,
     # please see the online documentation at vagrantup.com.
 
+    # do not update configured box
+    config.vm.box_check_update = false
+
+    # user insecure key
+    config.ssh.insert_key = false
+
     config.vm.box = "ubuntu/trusty64"
+
+    # Plugin required for proxy: vagrant plugin install vagrant-proxyconf
+    # To remove proxies: unset http_proxy; unset HTTPS_PROXY
+    if Vagrant.has_plugin?("vagrant-proxyconf")
+        config.proxy.http     = "http://192.168.0.100:3128"
+        #config.proxy.https    = "http://gavinln.dyndns.org:3128"
+        config.proxy.no_proxy = "localhost,127.0.0.1"
+    end
 
     # The url from where the 'config.vm.box' box will be fetched if it
     # doesn't already exist on the user's system.
