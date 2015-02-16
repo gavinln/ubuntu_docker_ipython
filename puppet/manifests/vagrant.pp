@@ -14,7 +14,9 @@ class {
     init: ;
     python_setup:;
     ohmyzsh_setup:;
-    docker: require => Class[init];
+    docker:
+        extra_parameters => "--registry-mirror=http://10.0.0.2:5000",
+        require => Class[init];
     samba_share: require => Class[init];
 }
 

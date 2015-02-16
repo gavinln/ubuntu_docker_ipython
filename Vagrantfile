@@ -43,7 +43,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     if Vagrant.has_plugin?("vagrant-proxyconf")
         config.proxy.http     = "http://192.168.0.100:3128"
         #config.proxy.https    = "http://gavinln.dyndns.org:3128"
-        config.proxy.no_proxy = "localhost,127.0.0.1"
+        config.proxy.no_proxy = "localhost,127.0.0.1,/var/run/docker.sock"
     end
 
     # The url from where the 'config.vm.box' box will be fetched if it
