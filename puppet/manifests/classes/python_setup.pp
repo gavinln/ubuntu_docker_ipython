@@ -10,7 +10,12 @@ class python_setup {
                 provider => pip,
                 require => Package['python-pip']
             }
-            package { 'raven':
+            package { 'fabric':
+                ensure => installed,
+                provider => pip,
+                require => Package['python-pip']
+            }
+           package { 'raven':
                 ensure => installed,
                 provider => pip,
                 require => Package['python-pip']
