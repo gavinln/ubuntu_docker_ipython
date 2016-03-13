@@ -5,11 +5,11 @@ class python_setup {
             package { "python-pip":
                 ensure => installed
             }
-            package { 'fig':
-                ensure => installed,
-                provider => pip,
-                require => Package['python-pip']
-            }
+#             package { 'fig':
+#                 ensure => installed,
+#                 provider => pip,
+#                 require => Package['python-pip']
+#            }
             package { 'fabric':
                 ensure => installed,
                 provider => pip,

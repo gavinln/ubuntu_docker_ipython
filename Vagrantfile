@@ -17,8 +17,7 @@ $script = <<SCRIPT
         $PUPPET_INSTALL -v 0.1.5 thias-samba
 
     (puppet module list | grep garethr-docker) ||
-        $PUPPET_INSTALL -v 2.2.0 garethr-docker
-
+        puppet module install -v 4.0.2 garethr-docker
 SCRIPT
 
 
@@ -122,9 +121,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     #config.vm.provision "docker"
 
+    config.vm.hostname = "docker-ipy"
     config.vm.provision "puppet" do |puppet|
-        puppet.manifest_file  = "vagrant.pp"
+        puppet.manifest_file  = "default.pp"
         puppet.manifests_path = "puppet/manifests"
+        puppet.options = "--certname=%s" % config.vm.hostname
         # puppet.options = "--verbose --debug"
     end
 

@@ -39,49 +39,17 @@ Running
 3. Go to the IPython notebook Docker container directory
 
     ```bash
-    cd /vagrant/docker/ipython
+    cd /vagrant/docker/jupyter
     ```
 
-4. Build the IPython notebook Docker container
+4. Build the Jupyter notebook Docker container
 
     ```bash
-    sudo fig build notebook
+    ./run-minimal-notebook.sh
     ```
 
-5. Run the IPython notebook Docker container
-
-    ```bash
-    sudo fig up -d notebook
-    ```
-
-6. To view the running containers
-
-    ```bash
-    sudo fig ps
-    ```
-
-7. Open the browser to the IPython notebook page
-http://localhost:PORT_IN_STEP_6/
-
-
-8. To see the logs from the IPython notebook container
-
-    ```bash
-    sudo fig logs notebook
-    ```
-
-9. To stop display of the logs type `Ctrl+C`.
-
-10. To stop the Docker IPython notebook container
-
-    ```bash
-    sudo fig kill notebook
-    ```
-11. To remove the notebook Docker container
-
-    ```bash
-    sudo fig rm notebook
-    ```
+5. Open the browser to the IPython notebook page
+http://192.168.33.10:8888/
 
 Requirements
 ------------
