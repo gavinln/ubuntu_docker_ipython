@@ -1,26 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-$script = <<SCRIPT
-
-    # Exit on any errors.
-    set -e
-
-    PUPPET_INSTALL='puppet module install \
-      --module_repository http://forge.puppetlabs.com'
-
-    # install puppet modules
-    (puppet module list | grep acme-ohmyzsh) ||
-        $PUPPET_INSTALL -v 0.1.2 acme-ohmyzsh
-
-    (puppet module list | grep thias-samba) ||
-        $PUPPET_INSTALL -v 0.1.5 thias-samba
-
-    (puppet module list | grep garethr-docker) ||
-        puppet module install -v 4.0.2 garethr-docker
-SCRIPT
-
-
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -116,10 +96,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # are contained in a directory path relative to this Vagrantfile.
     # You will need to create the manifests directory and a manifest in
     # the file default.pp in the manifests_path directory.
-    #
-    config.vm.provision "shell", inline: $script
 
-    #config.vm.provision "docker"
+    config.vm.provision "shell", path: 'puppet/install_puppet_modules.sh'
 
     config.vm.hostname = "docker-ipy"
     config.vm.provision "puppet" do |puppet|
